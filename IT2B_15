@@ -1,0 +1,150 @@
+/*
+Developers: Kenneth D. Flororita, Cristian Jay L. Sales
+CourseYearSection: BSIT2B
+Filename: IT2B_15.java
+About: This simple Java program provides movie recommendations, displaying the title of three movies along with their ratings(with a maximum rating of 5.0).
+*/
+
+import java.util.*;
+
+public class IT2B_15{
+
+   public static void main(String[] args){
+     
+    Scanner mov = new Scanner(System.in);
+
+  System.out.println("Hi! What movie genre do you want me to recommend to you? ");
+do{
+      System.out.println("[1] Romance");
+      System.out.println("[2] Comedy");
+      System.out.println("[3] Sci-Fi");
+      System.out.println("[4] Action");
+      System.out.println("[5] Terminate the program.");
+      int choice = mov.nextInt();
+
+
+   
+       switch (choice){
+        case 1:
+            System.out.println("Here are the top 3 Romance movies based on viewers' recommendation: ");
+            double[] Romance = {2.73, 4.41, 3.93, 1.20, 3.16, 2.31, 2.75, 4.99, 1.42, 2.19};
+            double[] sortedRomance = Sort(Romance);
+            String[] Titles1 = {
+                "Got To Believe In Magic",
+                "She's dating the Gangster",
+                "Can't help falling in Love",
+                "Dotdot and Pau",
+                "Roses Are Rosiee",
+                "King is dating an AI",
+                "I'm Falling inlove in AI",
+                "Bed in roses",
+                "Love Is In The Air",
+                "Automated Love"
+                };
+
+            for (int i = 0; i < 3; i++) {
+            System.out.println(Titles1[i] + " - " + sortedRomance[i]);
+          }
+            System.out.println("\nSelect another genre: ");
+
+       break;//end of case 1.
+
+      case 2:
+            System.out.println("Here are the top 3 Comedy movies based on viewers' recommendation: ");
+           double[] Comedies = {2.72, 4.21, 3.19, 4.18, 3.32, 4.14, 4.41, 3.14, 4.17, 3.61 };
+           double[] sortedComedies = Sort (Comedies);
+           String[] Titles2 = {
+                "Private Benjamin",
+                "Ang anak kong si king na makulit",
+                "Tila ibon mong lumipad",
+                "Mr.Bean",
+                "Wag kang gamol",
+                "Home along the riles",
+                "nanyemo",
+                "The Long Ranger",
+                "Bata Batuta",
+                "Nasaan ang Ngipin ni Vilgera"
+                 };
+
+                for ( int i = 0; i < 3; i++) {
+                System.out.println(Titles2[i] + " - " + sortedComedies[i]);
+        
+                }
+                System.out.println("\nSelect another genre: ");
+                break;//end of case 2.
+
+      case 3:
+            System.out.println("Here are the top 3 Science Fiction movies based on viewers' recommendation: ");
+                double[] Scifi = {2.72, 4.49, 3.91, 4.12, 2.65, 2.76, 4.42, 4.53, 1.11, 3.26};
+                double[] sortedScifi = Sort (Scifi);
+                String[] Titles3 = {
+                    "Terminator",
+                    "X-Men",
+                    "Interstellar",
+                    "The JAva",
+                    "Red Code",
+                    "Matrix",
+                    "Missing Code",
+                    "The Programmer",
+                    "Spacing Python",
+                    "AlU"
+                };
+                for (int i = 0; i < 3; i++) {
+                System.out.println(Titles3[i] + " - " + sortedScifi[i]);
+        
+                }
+                System.out.println("\nSelect another genre: ");
+                    break;//end of case 3.
+
+      case 4:
+            System.out.println("Here are the top 3 Action movies based on viewers' recommendation: ");
+            double[] Action = {2.71, 2.42, 3.91, 4.15, 3.04,3.74, 4.04, 3.99, 4.13, 3.61};
+            double[] sortedAction = Sort (Action);
+            String[] Titles4 = {
+                "Predator",
+                "007",
+                "Mission Impossible",
+                "Assination",
+                "David Goggins",
+                "Ultra Man",
+                "Isa'ng Bala ka lang",
+                "The Lone Ranger",
+                "YI Shun Shinn",
+                "Samsolic"
+               };
+           for (int i = 0; i < 3; i++) {
+           System.out.println(Titles4[i] + " - " + sortedAction[i]);      
+           }
+           
+            System.out.println("\nSelect another genre: ");
+             break;//end of case 4.
+             
+     case 5:
+             System.out.println("Terminating the program.");
+             System.exit(0);
+
+     default:
+             System.out.println("Undefined");
+
+   }
+}while(true);//while statement so the code can keep on repeating after the user selects a genre.
+
+   }
+//Method: Insaertion sorting Algorithm
+     public static double[] Sort(double[] shortt){
+    for (int i = 1; i < shortt.length; i++) {
+        double key = shortt[i];
+        int j = i - 1;
+
+        while (j >= 0 && shortt[j] < key) {
+            shortt[j + 1] = shortt[j];
+            j--;
+        }
+
+        shortt[j + 1] = key;
+    }
+    
+    return shortt;
+     }
+     
+}
